@@ -31,6 +31,11 @@ namespace address_book
 
 
       AddressBook addressBook = new AddressBook();
+
+      addressBook.AddContact(bob);
+      addressBook.AddContact(sue);
+      addressBook.AddContact(juan);
+
     }
   }
 }
