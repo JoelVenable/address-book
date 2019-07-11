@@ -36,6 +36,31 @@ namespace address_book
       addressBook.AddContact(sue);
       addressBook.AddContact(juan);
 
+      // Let's see what happens...
+      addressBook.AddContact(sue);
+
+
+
+      List<string> emails = new List<string>() {
+          "sue.jones@email.com",
+          "juan.lopez@email.com",
+          "bob.smith@email.com"
+      };
+
+      // Insert an email that does NOT match a contact...
+      emails.Insert(1, "not-in-addressbook@email.com");
+
+      emails.ForEach(email =>
+      {
+        Contact contact = addressBook.GetByEmail(email);
+        Console.WriteLine("-----------------------");
+        Console.WriteLine($"Name: {contact.FullName}");
+        Console.WriteLine($"Email: {contact.Email}");
+        Console.WriteLine($"Address: {contact.Address}");
+      });
+
+
+
     }
   }
 }

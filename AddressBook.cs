@@ -12,5 +12,9 @@ namespace address_book
     {
       _contacts.Add(newContact);
     }
+
+    public Contact GetByEmail(string emailToFind){
+      return _contacts.Find(contact => contact.Email == emailToFind);
+    }
   }
 }
