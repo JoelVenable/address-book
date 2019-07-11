@@ -52,11 +52,18 @@ namespace address_book
 
       emails.ForEach(email =>
       {
+          try
+          {
         Contact contact = addressBook.GetByEmail(email);
         Console.WriteLine("-----------------------");
-        Console.WriteLine($"Name: {contact.FullName}");
+        Console.WriteLine($"Name: {contact.FirstName} {contact.LastName}");
         Console.WriteLine($"Email: {contact.Email}");
         Console.WriteLine($"Address: {contact.Address}");
+          }
+          catch (NullReferenceException ex)
+          {
+              Console.WriteLine($"No contact found with email address: {email}");
+          }
       });
 
 
